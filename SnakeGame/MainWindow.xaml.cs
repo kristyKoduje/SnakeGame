@@ -20,6 +20,7 @@ namespace SnakeGame
     /// </summary>
     public partial class MainWindow : Window
     {
+        int gitTest;
         public MainWindow()
         {
             InitializeComponent();
