@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32407.337
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnakeGame", "SnakeGame\SnakeGame.csproj", "{0F104986-98A7-460B-AFA2-2F7B13CD8452}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snake.Logic", "Snake.Logic\Snake.Logic.csproj", "{84FFE9B8-251C-470B-BEE5-275EADF9BE93}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snake.UI.WPF", "Snake.UI.WPF\Snake.UI.WPF.csproj", "{DC019D1D-17C4-4CC2-B9F3-8601D7E5B6A2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0F104986-98A7-460B-AFA2-2F7B13CD8452}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0F104986-98A7-460B-AFA2-2F7B13CD8452}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0F104986-98A7-460B-AFA2-2F7B13CD8452}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0F104986-98A7-460B-AFA2-2F7B13CD8452}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84FFE9B8-251C-470B-BEE5-275EADF9BE93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84FFE9B8-251C-470B-BEE5-275EADF9BE93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84FFE9B8-251C-470B-BEE5-275EADF9BE93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84FFE9B8-251C-470B-BEE5-275EADF9BE93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC019D1D-17C4-4CC2-B9F3-8601D7E5B6A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC019D1D-17C4-4CC2-B9F3-8601D7E5B6A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC019D1D-17C4-4CC2-B9F3-8601D7E5B6A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC019D1D-17C4-4CC2-B9F3-8601D7E5B6A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
