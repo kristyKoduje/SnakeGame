@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Snake.UI.WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" KeyDown="Window_KeyDown">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
@@ -17,7 +17,7 @@
             <ColumnDefinition Width="4*"></ColumnDefinition>
             <ColumnDefinition Width="2*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Border BorderBrush="black" BorderThickness="10" Grid.Column="1" Grid.Row="1">
+        <Border Name ="BoardBorder" BorderBrush="black" BorderThickness="10" Grid.Column="1" Grid.Row="1">
             <Grid Name="GameGrid" ShowGridLines="False"></Grid>
         </Border>
         <TextBlock
