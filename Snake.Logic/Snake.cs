@@ -32,9 +32,13 @@ namespace Snake.Logic
 
         public void MoveSnake(Point point)
         {
-            if (point.Status != Point.PointStatus.Food )
+            if (point.Status != Point.PointStatus.Food)
             {
                 TakePoint();
+            }
+            else
+            {
+                Game.FoodWasEaten();
             }
 
             AddPoint(point);

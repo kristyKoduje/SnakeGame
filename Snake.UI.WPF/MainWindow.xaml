@@ -20,9 +20,21 @@
         <Border Name ="BoardBorder" BorderBrush="black" BorderThickness="10" Grid.Column="1" Grid.Row="1">
             <Grid Name="GameGrid" ShowGridLines="False"></Grid>
         </Border>
-        <TextBlock
-            Text="Asi sem dame nejaky tlacitka" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-        </TextBlock>
+
+        <StackPanel Grid.Column="2" Grid.Row="1" >
+            <TextBlock
+            Text="Asi sem dame nejaky tlacitka" HorizontalAlignment="Center" VerticalAlignment="Center">
+            </TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Počet sežraných jídel: "/>
+                <TextBlock Text="{Binding NumberOfEatenFoods}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Počet mrtvých hadů: "/>
+                <TextBlock Text="{Binding NumberOfDeadSnakes}"/>
+            </StackPanel>
+        </StackPanel>
+
         <Button Name ="BtnGameStart" Content="Start game" Grid.Column="2" Grid.Row="0" Click="BtnGameStart_Click"></Button>
     </Grid>
 </Window>

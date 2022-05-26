@@ -46,6 +46,7 @@
     <Compile Include="GameBoard\Point.cs" />
     <Compile Include="Game\GameLevel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Score.cs" />
     <Compile Include="Snake.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

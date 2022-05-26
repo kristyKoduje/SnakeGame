@@ -9,6 +9,7 @@ namespace Snake.Logic
     public static class Game
     {
         public static GameLevel Level { get; private set; }
+        public static Score Score { get; private set; }
 
         public static Snake Snake { get; private set; }
 
@@ -18,6 +19,7 @@ namespace Snake.Logic
 
         public static CrashType  GameCrash = CrashType.AllIsGod;
 
+        private static Random random { get; set; }
 
         
 
@@ -197,9 +199,22 @@ namespace Snake.Logic
             Level = new GameLevel (1,board, true, 300, 20);
         }
 
-        
-        
-   
+        public static void FoodWasEaten()
+        {
+            Score.IncreaseFoodScore();
+            random = new Random();
+            Level.Board.Points[random.Next(0,39), random.Next(0,39)].Status = GameBoard.Point.PointStatus.Food;
+        }
+
+        public static Score CreateScore()
+        {
+            Score = new Score();
+            return Score;
+        }
+
+
+
+
 
 
     }
