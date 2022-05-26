@@ -203,7 +203,7 @@ namespace Snake.Logic
         {
             Score.IncreaseFoodScore();
             random = new Random();
-            Level.Board.Points[random.Next(0,39), random.Next(0,39)].Status = GameBoard.Point.PointStatus.Food;
+            Level.Board.Points[random.Next(0,39), random.Next(0,39) ].Status = GameBoard.Point.PointStatus.Food;
         }
 
         public static Score CreateScore()

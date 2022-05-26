@@ -74,6 +74,7 @@ namespace Snake.UI.WPF
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
+            if (GameTimer != null)
             switch (e.Key)
             {
                 case Key.Up:
