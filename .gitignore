@@ -13,6 +13,9 @@ TestResults
 *.user
 *.sln.docstates
 
+#Visual studio cache directory
+.vs/
+
 # Include dlls if theyfre in the NuGet packages directory
 !/packages/*/lib/*.dll
 !/packages/*/lib/*/*.dll
