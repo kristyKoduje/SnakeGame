@@ -1,0 +1,28 @@
+﻿<Window x:Class="Snake.UI.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Snake.UI.WPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" KeyDown="Window_KeyDown">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="6*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="4*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Border Name ="BoardBorder" BorderBrush="black" BorderThickness="10" Grid.Column="1" Grid.Row="1">
+            <Grid Name="GameGrid" ShowGridLines="False"></Grid>
+        </Border>
+        <TextBlock
+            Text="Asi sem dame nejaky tlacitka" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+        </TextBlock>
+        <Button Name ="BtnGameStart" Content="Start game" Grid.Column="2" Grid.Row="0" Click="BtnGameStart_Click"></Button>
+    </Grid>
+</Window>
