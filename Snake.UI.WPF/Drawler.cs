@@ -14,10 +14,12 @@ namespace Snake.UI.WPF
     {
         private Grid GameGrid { get;  set; }
 
-        public Drawler(Grid gameGrid )
+        private Border BoardBorder { get; set; }
+
+        public Drawler(Grid gameGrid,Border boardBorder )
         {
 
-            GameGrid = gameGrid;
+            GameGrid = gameGrid; BoardBorder = boardBorder;
 
         }
 
@@ -29,14 +31,30 @@ namespace Snake.UI.WPF
 
             GameGrid.RowDefinitions.Clear();
             GameGrid.ColumnDefinitions.Clear();
-            for (int i = 0; i < Game.Level.Board.Points.GetLength(0); i++)
+            for (int i = 0; i < Game.Level.Board.Points.GetLength(1); i++)
             {
                 GameGrid.RowDefinitions.Add(new RowDefinition());
             }
-            for (int i = 0; i < Game.Level.Board.Points.GetLength(1); i++)
+            for (int i = 0; i < Game.Level.Board.Points.GetLength(0); i++)
             {
                 GameGrid.ColumnDefinitions.Add(new ColumnDefinition());
             }
+
+
+
+
+
+
+            //GameGrid.RowDefinitions.Clear();
+            //GameGrid.ColumnDefinitions.Clear();
+            //for (int i = 0; i < Game.Level.Board.Points.GetLength(0); i++)
+            //{
+            //    GameGrid.RowDefinitions.Add(new RowDefinition());
+            //}
+            //for (int i = 0; i < Game.Level.Board.Points.GetLength(1); i++)
+            //{
+            //    GameGrid.ColumnDefinitions.Add(new ColumnDefinition());
+            //}
         }
 
         /// <summary>
@@ -48,14 +66,14 @@ namespace Snake.UI.WPF
 
             var point = Game.Level.Board.ListPoints;
 
-            var drawingPoints = point.Where(x => x.Status == Logic.GameBoard.Point.PointStatus.Barier || x.Status == Logic.GameBoard.Point.PointStatus.Snake || x.Status == Logic.GameBoard.Point.PointStatus.Food).ToList();
+            var drawingPoints = point.Where(x => x.Status != Logic.GameBoard.Point.PointStatus.Empty).ToList();
 
 
             foreach (var item in drawingPoints)
             {
                 Rectangle rec = new Rectangle();
 
-                rec.Fill = Brushes.White;
+                
 
                 switch (item.Status)
                 {
@@ -73,13 +91,22 @@ namespace Snake.UI.WPF
                         break;
                 }
 
-                Grid.SetRow(rec, item.Location.X);
-                Grid.SetColumn(rec, item.Location.Y);
+                Grid.SetRow(rec, item.Location.Y);
+                Grid.SetColumn(rec, item.Location.X);
                 GameGrid.Children.Add(rec);
-
-                
             }
-           // System.Windows.MessageBox.Show("Vykresleno");
+
+            
+            // zelena = pruchozi stena --- vykresluje se pokazde, kdyby nas napadlo dat tam neco jako zmenu v pulce levelu :D 
+            if (Game.Level.ThroughWall)
+            {
+               BoardBorder.BorderBrush = Brushes.Green;
+            }
+            else
+            {
+                BoardBorder.BorderBrush = Brushes.Red;
+            }
+           
         }
 
 

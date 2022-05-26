@@ -25,7 +25,7 @@ namespace Snake.Logic.GameBoard
             {
                 for (int j = 0; j < points.GetLength(1); j++)
                 {
-                    ListPoints.Add(points[i, j]);
+                    ListPoints.Add(points[i,j]);
                 }
             }
         }

@@ -36,8 +36,9 @@ namespace Snake.UI.WPF
 
         private void BtnGameStart_Click(object sender, RoutedEventArgs e)
         {
-            drawler = new Drawler(GameGrid);
+            drawler = new Drawler(GameGrid,BoardBorder);
             Game.CreateLevel();
+            Game.CreateSnake();
             drawler.DrawStartGrid();
             drawler.DrawBoard();
 
@@ -52,8 +53,41 @@ namespace Snake.UI.WPF
 
         private void GameTimer_Tick(object sender, EventArgs e)
         {
-            Game.SnakeMove();
-            drawler.DrawBoard();    
+            if (Game.WaitingDirectory != Logic.Snake.Directory.Null)
+            {
+                Game.PrepareMove();
+                drawler.DrawBoard();
+                if (Game.GameCrash != Game.CrashType.AllIsGod)
+                {
+                    MessageBox.Show(Game.GameCrash.ToString());
+                    GameTimer.Stop();
+                }
+                else
+                {
+                    Game.GameMove();
+                }
+            }
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.Key)
+            {
+                case Key.Up:
+                    Game.ChangeNextDirectory(Logic.Snake.Directory.Up);
+                    break;
+                case Key.Down:
+                    Game.ChangeNextDirectory(Logic.Snake.Directory.Down);
+                    break;
+                case Key.Left:
+                    Game.ChangeNextDirectory(Logic.Snake.Directory.Left);
+                    break;
+                case Key.Right:
+                    Game.ChangeNextDirectory(Logic.Snake.Directory.Right);
+                    break;
+
+
+            }
         }
     }
 }
