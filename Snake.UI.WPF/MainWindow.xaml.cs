@@ -27,11 +27,13 @@ namespace Snake.UI.WPF
 
         DispatcherTimer GameTimer;
 
-
+        Score Score;
 
         public MainWindow()
         {
             InitializeComponent();
+            Score = Game.CreateScore();
+            DataContext = Score;
         }
 
         private void BtnGameStart_Click(object sender, RoutedEventArgs e)
@@ -59,7 +61,8 @@ namespace Snake.UI.WPF
                 drawler.DrawBoard();
                 if (Game.GameCrash != Game.CrashType.AllIsGod)
                 {
-                    MessageBox.Show(Game.GameCrash.ToString());
+                    Score.IncreaseNumberOfDeaths();
+                    MessageBox.Show($"Sežral jsi {Score.NumberOfEatenFoods} žřádel a zemřel jsi {Score.NumberOfDeadSnakes}x." ,Game.GameCrash.ToString());
                     GameTimer.Stop();
                 }
                 else
@@ -71,6 +74,7 @@ namespace Snake.UI.WPF
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
+            if (GameTimer != null)
             switch (e.Key)
             {
                 case Key.Up:

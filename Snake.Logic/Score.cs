@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Snake.Logic
 {
-    class Score : INotifyPropertyChanged
+    public class Score : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public int NumberOfEatenFoods { get; private set; }
@@ -17,6 +17,22 @@ namespace Snake.Logic
         {
             NumberOfEatenFoods = 0;
             NumberOfDeadSnakes = 0;
+        }
+        private void NotifyPropertyChanged()
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(null));
+        }
+
+        public void IncreaseFoodScore()
+        {
+            NumberOfEatenFoods++;
+            NotifyPropertyChanged();
+        }
+
+        public void IncreaseNumberOfDeaths()
+        {
+            NumberOfDeadSnakes++;
+            NotifyPropertyChanged();
         }
     }
 }
